@@ -12,6 +12,9 @@ import { ProductFilterPipe } from './product/product-filter.pipe';
 import { AlertifyService } from './services/alertify.service';
 import { ProductAddClassicComponent } from './product/product-add-classic/product-add-classic.component';
 import { ProductAddReactiveComponent } from './product/product-add-reactive/product-add-reactive.component';
+import { LoginComponent } from './login/login.component';
+import { AccountService } from './services/account.service';
+import { LoginGuard } from './login/login.guard';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,8 @@ import { ProductAddReactiveComponent } from './product/product-add-reactive/prod
     ProductComponent,
     ProductFilterPipe,
     ProductAddClassicComponent,
-    ProductAddReactiveComponent
+    ProductAddReactiveComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,7 @@ import { ProductAddReactiveComponent } from './product/product-add-reactive/prod
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [AlertifyService],
+  providers: [AlertifyService, AccountService, LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
